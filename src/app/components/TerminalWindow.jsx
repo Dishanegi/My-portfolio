@@ -188,7 +188,7 @@ const TerminalWindow = () => {
             <div className="w-3 h-3 rounded-full bg-[#27C93F] shadow-lg"></div>
           </div>
           <div className="absolute left-1/2 transform -translate-x-1/2 text-sm text-[#8B949E] font-medium">
-            ✨ Disha's Magical Terminal ✨
+            ✨ Disha&apos;s Magical Terminal ✨
           </div>
         </div>
         

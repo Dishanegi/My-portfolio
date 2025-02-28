@@ -12,7 +12,7 @@ const HeroSection = () => {
     const handleResize = () => {
       setTypingSpeed(window.innerWidth < 768 ? 70 : 50);
     };
-    
+
     // Set initial speed
     handleResize();
 
@@ -59,15 +59,15 @@ const HeroSection = () => {
             <p className="first-letter:text-2xl sm:first-letter:text-3xl first-letter:font-bold first-letter:text-primary-400 sm:max-w-[90%]">
               I&apos;m just a human, not a robot (yet), who somehow manages to harmonize cloud technologies, AI, and data analytics without missing a beat.
             </p>
-            
+
             <p className="italic hidden sm:block sm:max-w-[85%]">
               Just like finding the right note in a song, I believe every problem has its own rhythm—it just requires some clever adjustments to resolve it.
             </p>
-            
+
             <p className="font-light sm:max-w-[80%]">
               When I&apos;m not orchestrating solutions, you&apos;ll catch me singing (mostly on key) or chasing sunrises and sunsets for that perfect spark of inspiration.
             </p>
-            
+
             <p className="border-l-2 sm:border-l-4 border-primary-400 pl-3 sm:pl-6 sm:max-w-[75%] bg-gradient-to-r from-[#1c1c1c] to-transparent py-2">
               Balancing creativity with logic is my forte, though I sometimes wish debugging was as simple as skipping to the next track!
             </p>
