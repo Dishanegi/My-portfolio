@@ -2,13 +2,16 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 const HeroSection = () => {
   const [typingSpeed, setTypingSpeed] = useState(50);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    // Mark as loaded immediately
+    setIsLoaded(true);
+    
     const handleResize = () => {
       setTypingSpeed(window.innerWidth < 768 ? 70 : 50);
     };
@@ -24,13 +27,14 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="py-8 lg:py-16">
+    <section className="w-full py-4">
       <div className="grid grid-cols-1 sm:grid-cols-12 gap-8 px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+        <div 
           className="col-span-12 sm:col-span-8 place-self-center text-center sm:text-left order-2 sm:order-1"
+          style={{ 
+            opacity: isLoaded ? 1 : 0,
+            transition: 'opacity 0.3s ease'
+          }}
         >
           <h1 className="text-white mb-4 text-3xl sm:text-4xl lg:text-6xl lg:leading-normal font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
@@ -88,12 +92,13 @@ const HeroSection = () => {
               </span>
             </Link>
           </div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+        </div>
+        <div 
           className="col-span-12 sm:col-span-4 place-self-center order-1 sm:order-2"
+          style={{ 
+            opacity: isLoaded ? 1 : 0,
+            transition: 'opacity 0.3s ease'
+          }}
         >
           <div className="rounded-full bg-[#181818] w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[400px] lg:h-[460px] relative overflow-hidden">
             <Image
@@ -103,9 +108,10 @@ const HeroSection = () => {
               fill
               sizes="(max-width: 640px) 200px, (max-width: 1024px) 250px, 400px"
               priority
+              onLoadingComplete={() => setIsLoaded(true)}
             />
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
