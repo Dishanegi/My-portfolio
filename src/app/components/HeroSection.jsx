@@ -37,7 +37,7 @@ const HeroSection = () => {
           }}
         >
           <h1 className="text-white mb-4 text-3xl sm:text-4xl lg:text-6xl lg:leading-normal font-extrabold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600 font-black font-[var(--font-space-grotesk)]">
               Hello, I&apos;m{" "}
             </span>
             <br className="hidden sm:block" />
@@ -57,9 +57,10 @@ const HeroSection = () => {
               wrapper="span"
               speed={typingSpeed}
               repeat={Infinity}
+              className="font-black font-[var(--font-orbitron)]"
             />
           </h1>
-          <div className="text-[#ADB7BE] space-y-4 sm:space-y-6 text-sm sm:text-base lg:text-lg max-w-3xl mx-auto sm:mx-0 leading-relaxed px-4 sm:px-0">
+          <div className="text-[#ADB7BE] space-y-4 sm:space-y-6 text-sm sm:text-base lg:text-lg max-w-3xl mx-auto sm:mx-0 leading-relaxed px-4 sm:px-0 font-[var(--font-space-grotesk)]">
             <p className="first-letter:text-2xl sm:first-letter:text-3xl first-letter:font-bold first-letter:text-primary-400 sm:max-w-[90%]">
               I&apos;m just a human, not a robot (yet), who somehow manages to harmonize cloud technologies, AI, and data analytics without missing a beat.
             </p>
@@ -94,15 +95,15 @@ const HeroSection = () => {
           </div>
         </div>
         <div 
-          className="col-span-12 sm:col-span-4 place-self-center order-1 sm:order-2"
+          className="col-span-12 sm:col-span-4 place-self-center order-1 sm:order-2 mt-8 sm:mt-12 lg:mt-16"
           style={{ 
             opacity: isLoaded ? 1 : 0,
             transition: 'opacity 0.3s ease'
           }}
         >
-          <div className="rounded-full bg-[#181818] w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[400px] lg:h-[460px] relative overflow-hidden">
+          <div className="rounded-full bg-[#181818] w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[400px] lg:h-[460px] relative overflow-hidden mx-auto">
             <Image
-              src="/images/Disha.png"
+              src="/images/disha.png"
               alt="hero image"
               className="rounded-full object-cover"
               fill

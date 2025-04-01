@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import AboutSection from "./components/AboutSection";
@@ -10,6 +10,8 @@ import TerminalWindow from "./components/TerminalWindow";
 import SkillsSection from "./components/SkillsSection";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
   // First approach: useLayoutEffect to force scroll to top BEFORE render
   useLayoutEffect(() => {
     // Force scroll to top immediately before painting
@@ -29,6 +31,13 @@ export default function Home() {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
+
+    // Set loading to false after a short delay
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -40,12 +49,14 @@ export default function Home() {
           <HeroSection />
         </section>
         
-        {/* Rest of the sections */}
-        <SkillsSection />
-        <TerminalWindow />
-        <AboutSection />
-        <ProjectsSection />
-        <EmailSection />
+        {/* Rest of the sections with loading state */}
+        <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+          <SkillsSection />
+          <TerminalWindow />
+          <AboutSection />
+          <ProjectsSection />
+          <EmailSection />
+        </div>
       </div>
       <Footer />
     </main>
